@@ -16,7 +16,7 @@
 package io.github.photowey.infras.api.core.meta;
 
 import io.github.photowey.infras.api.common.constant.InfrasConstants;
-import io.github.photowey.infras.api.core.model.PageResult;
+import io.github.photowey.infras.api.core.model.page.PageResult;
 
 import java.io.Serializable;
 
@@ -32,28 +32,21 @@ public class Meta implements Serializable {
     private static final long serialVersionUID = -553396062548580887L;
 
     private Long pageNo;
-
     private Long pageSize;
-
     private Long count;
-
     private Long pages;
 
     // ----------------------------------------------------------------
 
     public static <D> Meta populateMeta(PageResult<D> page) {
-        return Meta.builder()
-                .pageNo(page.getData().pageNo())
-                .pageSize(page.getData().pageSize())
-                .count(page.getData().count())
-                .build();
+        return page.struct().toMeta();
     }
 
     public static Meta populateDefaultMeta() {
         return populateMeta(InfrasConstants.Pagination.DEFAULT_PAGE_SIZE);
     }
 
-    public static Meta populateMeta(long pageSize) {
+    public static Meta populateMeta(Long pageSize) {
         return populateMeta(InfrasConstants.Pagination.EMPTY, InfrasConstants.Pagination.DEFAULT_PAGE_NO, pageSize);
     }
 
@@ -79,6 +72,40 @@ public class Meta implements Serializable {
 
             return pages;
         }
+    }
+
+    // ----------------------------------------------------------------
+
+    public Long pageNo() {
+        return this.pageNo;
+    }
+
+    public Long pageSize() {
+        return this.pageSize;
+    }
+
+    public Long count() {
+        return this.count;
+    }
+
+    public Long pages() {
+        return this.pages;
+    }
+
+    public void pageNo(Long pageNo) {
+        this.pageNo = pageNo;
+    }
+
+    public void pageSize(Long pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public void count(Long count) {
+        this.count = count;
+    }
+
+    public void pages(Long pages) {
+        this.pages = pages;
     }
 
     // ----------------------------------------------------------------
