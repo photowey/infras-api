@@ -14,6 +14,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>infras-api-common</module>
         <module>infras-api-core</module>
         <module>infras-api-starter</module>
         <module>swagger-infras-api-core</module>
@@ -45,6 +46,11 @@
         <dependencies>
             <dependency>
                 <groupId>io.github.photowey</groupId>
+                <artifactId>infras-api-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.photowey</groupId>
                 <artifactId>infras-api-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -52,6 +58,7 @@
                 <groupId>io.github.photowey</groupId>
                 <artifactId>infras-api-starter</artifactId>
                 <version>${project.version}</version>
+                <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>io.github.photowey</groupId>
@@ -70,7 +77,6 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
                 <version>${jackson.version}</version>
-                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
