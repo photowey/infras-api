@@ -20,6 +20,10 @@
     <!-- @formatter:on -->
 
     <dependencies>
+        <dependency>
+            <groupId>io.github.photowey</groupId>
+            <artifactId>infras-api-common</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
