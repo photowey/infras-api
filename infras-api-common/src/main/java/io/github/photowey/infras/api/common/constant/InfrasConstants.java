@@ -55,7 +55,13 @@ public interface InfrasConstants {
      * |- 000000 - biz.status
      */
     String DEFAULT_API_OK = HTTP_STATUS_OK + BIZ_STATUS_OK;
-    String DEFAULT_API_MESSAGE = "ok";
+    String DEFAULT_API_OK_MESSAGE = "ok";
+
+    String DEFAULT_API_BAD_REQUEST = HTTP_STATUS_BAD_REQUEST + BIZ_STATUS_OK;
+    String DEFAULT_API_BAD_REQUEST_MESSAGE = "bad.request";
+
+    String DEFAULT_API_INNER_ERROR = HTTP_STATUS_INTERNAL_SERVER_ERROR + BIZ_STATUS_OK;
+    String DEFAULT_API_INNER_ERROR_MESSAGE = "system.error";
 
     interface Pagination {
 
@@ -71,7 +77,13 @@ public interface InfrasConstants {
 
     interface Properties {
         String INFRAS_API_OK_CONFIG_KEY = "io.github.photowey.infras.api.ok.code";
-        String INFRAS_API_MESSAGE_CONFIG_KEY = "io.github.photowey.infras.api.ok.message";
+        String INFRAS_API_OK_MESSAGE_CONFIG_KEY = "io.github.photowey.infras.api.ok.message";
+
+        String INFRAS_API_BAD_REQUEST_CONFIG_KEY = "io.github.photowey.infras.api.bad.request.code";
+        String INFRAS_API_BAD_REQUEST_MESSAGE_CONFIG_KEY = "io.github.photowey.infras.api.bad.request.message";
+
+        String INFRAS_API_INNER_ERROR_CONFIG_KEY = "io.github.photowey.infras.api.inner.error.code";
+        String INFRAS_API_INNER_ERROR_MESSAGE_CONFIG_KEY = "io.github.photowey.infras.api.inner.error.message";
     }
 
     interface Collection {

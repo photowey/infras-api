@@ -33,10 +33,7 @@ public abstract class ResultSupport<T, R extends ResultSupport<T, R>> implements
 
     private static final long serialVersionUID = -8479667319465108597L;
 
-    public static final String API_OK = "000000";
-
     protected String code;
-
     protected String message;
 
     protected ResultSupport() {
@@ -75,7 +72,7 @@ public abstract class ResultSupport<T, R extends ResultSupport<T, R>> implements
     }
 
     public boolean determineIsSuccessful() {
-        return this.determineApiOkCode().equalsIgnoreCase(this.code);
+        return determineApiOkCode().equalsIgnoreCase(this.code);
     }
 
     public boolean determineIsFailed() {
@@ -83,10 +80,26 @@ public abstract class ResultSupport<T, R extends ResultSupport<T, R>> implements
     }
 
     public static String determineApiOkCode() {
-        return System.getProperty(InfrasConstants.Properties.INFRAS_API_OK_CONFIG_KEY,/*200000000*/InfrasConstants.DEFAULT_API_OK);
+        return System.getProperty(InfrasConstants.Properties.INFRAS_API_OK_CONFIG_KEY,/*200_000000*/InfrasConstants.DEFAULT_API_OK);
     }
 
     public static String determineApiOkMessage() {
-        return System.getProperty(InfrasConstants.Properties.INFRAS_API_MESSAGE_CONFIG_KEY,/*ok*/InfrasConstants.DEFAULT_API_MESSAGE);
+        return System.getProperty(InfrasConstants.Properties.INFRAS_API_OK_MESSAGE_CONFIG_KEY,/*ok*/InfrasConstants.DEFAULT_API_OK_MESSAGE);
+    }
+
+    public static String determineApiBadRequestCode() {
+        return System.getProperty(InfrasConstants.Properties.INFRAS_API_BAD_REQUEST_CONFIG_KEY,/*400_000000*/InfrasConstants.DEFAULT_API_BAD_REQUEST);
+    }
+
+    public static String determineApiBadRequestMessage() {
+        return System.getProperty(InfrasConstants.Properties.INFRAS_API_BAD_REQUEST_MESSAGE_CONFIG_KEY,/*bad.request*/InfrasConstants.DEFAULT_API_BAD_REQUEST_MESSAGE);
+    }
+
+    public static String determineApiInnerErrorCode() {
+        return System.getProperty(InfrasConstants.Properties.INFRAS_API_INNER_ERROR_CONFIG_KEY,/*500_000000*/InfrasConstants.DEFAULT_API_INNER_ERROR);
+    }
+
+    public static String determineApiInnerErrorMessage() {
+        return System.getProperty(InfrasConstants.Properties.INFRAS_API_INNER_ERROR_MESSAGE_CONFIG_KEY,/*system.error*/InfrasConstants.DEFAULT_API_INNER_ERROR_MESSAGE);
     }
 }

@@ -94,12 +94,13 @@
         </repository>
     </distributionManagement>
 
+    <!-- @formatter:off -->
     <scm>
-        <url>https://github.com/photowey/infras-api</url>
         <connection>scm:git@github.com:photowey/infras-api.git</connection>
-        <developerConnection>scm:git@github.com:photowey/infras-api.git
-        </developerConnection>
+        <developerConnection>scm:git@github.com:photowey/infras-api.git</developerConnection>
+        <url>https://github.com/photowey/infras-api</url>
     </scm>
+    <!-- @formatter:on -->
 
     <build>
         <finalName>${project.artifactId}</finalName>
